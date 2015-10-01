@@ -1,1 +1,37 @@
+/*Benjamin Wu
+ *CISC 3150 - HW4
+ *Create Your OWn MyString Class with methods.
 
+Comments:
+
+*/
+
+public class MyString 
+{
+	//This the global variables. Do I need to make it static?
+	public static char[] characters;
+
+	public static void main(String[] args)
+	{
+		char[] tehArray = new char[]
+			{
+			'H','E','l','L','o'
+			};
+		MyString yoSupThisMyNewObject = new MyString(tehArray);
+		
+
+		//testing methods.
+		System.out.println(yoSupThisMyNewObject);		
+	}
+	//Constructor
+	public MyString(char[] chars)
+	{
+		characters = chars;
+	}
+	/*public char charAt(int index);
+	{
+	char theChar;
+	
+	return theChar;
+	}*/
+}
