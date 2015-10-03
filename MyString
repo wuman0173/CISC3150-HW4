@@ -1,37 +1,58 @@
-/*Benjamin Wu
- *CISC 3150 - HW4
- *Create Your OWn MyString Class with methods.
+/*
+Benjamin Wu
+CISC 3150 HW4
+MyString Class 
 
 Comments:
 
+
 */
 
-public class MyString 
+class MyString
 {
-	//This the global variables. Do I need to make it static?
-	public static char[] characters;
-
 	public static void main(String[] args)
 	{
-		char[] tehArray = new char[]
+		char[] theArray = new char[] 
 			{
-			'H','E','l','L','o'
+			'h', 'E', 'L', 'L', 'o'
 			};
-		MyString yoSupThisMyNewObject = new MyString(tehArray);
+		MyString theNewString = new MyString(theArray);
+		System.out.println(theNewString); //This prints out the Hash for the Array. As of Now?
+		theNewString.charAt(4);
 		
-
-		//testing methods.
-		System.out.println(yoSupThisMyNewObject);		
 	}
-	//Constructor
-	public MyString(char[] chars)
+	public MyString(char[] chars) //Empty Constructor
 	{
-		characters = chars;
+		
 	}
-	/*public char charAt(int index);
+	public char charAt(int index)
 	{
-	char theChar;
-	
-	return theChar;
-	}*/
+		//return MyString[index];
+	}
+/*
+	public int length()
+	{
+	}
+	public MyString substring(int begin, int end)
+	{
+	}
+	public MyString toLowerCase()
+	{
+	}
+	public MyString toUpperCase()
+	{
+	}
+	public boolean equals(MyString s)
+	{
+	}
+	public MyString getMyString()
+	{
+	}
+	public String toString();
+	{
+	}
+	public static MyString valueOf(int i)
+	{
+	}
+*/
 }
