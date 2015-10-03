@@ -13,7 +13,8 @@ import java.util.*;
 
 class MyString
 {
-private final char[] wassup;
+private char[] wassup;
+private final int count;
 private final int offset;
 
 	public static void main(String[] args)
@@ -24,22 +25,27 @@ private final int offset;
 			};
 		MyString theNewString = new MyString(theArray);
 
-		System.out.println(theNewString); //This prints out the Hash for the Array. As of Now?
+		//These prints out the Hash for the Array. As of Now. Except charAt and length.
+		System.out.println(theNewString); 
 		System.out.println(theNewString.charAt(3));
 		System.out.println(theNewString.length());
 		System.out.println(theNewString.substring(1,3));
 		System.out.println(theNewString.toString());
+		System.out.println(theNewString.toLowerCase());
+		System.out.println(theNewString.toUpperCase());
 
 		
 	}
 	public MyString(char[] chars)
 	{
 	this.offset = 0;
+	this.count = 0;
 	this.wassup = chars;
 	}
 	public MyString(int offset, int count, char[] chars)
 	{
 	this.wassup = chars;
+	this.count = count;
 	this.offset = offset;
 	}
 	public char charAt(int index)
@@ -56,26 +62,248 @@ private final int offset;
 	public MyString substring(int begin, int end)
 	{
 		return new MyString(offset + begin, end - begin, wassup);
-	}/*
+	}
 	public MyString toLowerCase()
+	{
+		MyString fakeObject = new MyString(wassup);
+		fakeObject.wassup = wassup;
+		for (int i = 0; i < fakeObject.wassup.length; i++)
+			{
+			if (fakeObject.wassup[i] == 'A')
+				{
+				fakeObject.wassup[i] = 'a';
+				}
+			if (fakeObject.wassup[i] == 'B')
+				{
+				fakeObject.wassup[i] = 'b';
+				}
+			if (fakeObject.wassup[i] == 'C')
+				{
+				fakeObject.wassup[i] = 'c';
+				}
+			if (fakeObject.wassup[i] == 'D')
+				{
+				fakeObject.wassup[i] = 'd';
+				}
+			if (fakeObject.wassup[i] == 'E')
+				{
+				fakeObject.wassup[i] = 'e';
+				}
+			if (fakeObject.wassup[i] == 'F')
+				{
+				fakeObject.wassup[i] = 'f';
+				}
+			if (fakeObject.wassup[i] == 'G')
+				{
+				fakeObject.wassup[i] = 'g';
+				}
+			if (fakeObject.wassup[i] == 'H')
+				{
+				fakeObject.wassup[i] = 'h';
+				}
+			if (fakeObject.wassup[i] == 'I')
+				{
+				fakeObject.wassup[i] = 'i';
+				}
+			if (fakeObject.wassup[i] == 'J')
+				{
+				fakeObject.wassup[i] = 'j';
+				}
+			if (fakeObject.wassup[i] == 'K')
+				{
+				fakeObject.wassup[i] = 'k';
+				}
+			if (fakeObject.wassup[i] == 'L')
+				{
+				fakeObject.wassup[i] = 'l';
+				}
+			if (fakeObject.wassup[i] == 'M')
+				{
+				fakeObject.wassup[i] = 'm';
+				}
+			if (fakeObject.wassup[i] == 'N')
+				{
+				fakeObject.wassup[i] = 'n';
+				}
+			if (fakeObject.wassup[i] == 'O')
+				{
+				fakeObject.wassup[i] = 'o';
+				}
+			if (fakeObject.wassup[i] == 'P')
+				{
+				fakeObject.wassup[i] = 'p';
+				}
+			if (fakeObject.wassup[i] == 'Q')
+				{
+				fakeObject.wassup[i] = 'q';
+				}
+			if (fakeObject.wassup[i] == 'R')
+				{
+				fakeObject.wassup[i] = 'r';
+				}
+			if (fakeObject.wassup[i] == 'S')
+				{
+				fakeObject.wassup[i] = 's';
+				}
+			if (fakeObject.wassup[i] == 'T')
+				{
+				fakeObject.wassup[i] = 't';
+				}
+			if (fakeObject.wassup[i] == 'U')
+				{
+				fakeObject.wassup[i] = 'u';
+				}
+			if (fakeObject.wassup[i] == 'V')
+				{
+				fakeObject.wassup[i] = 'v';
+				}
+			if (fakeObject.wassup[i] == 'W')
+				{
+				fakeObject.wassup[i] = 'w';
+				}
+			if (fakeObject.wassup[i] == 'X')
+				{
+				fakeObject.wassup[i] = 'x';
+				}
+			if (fakeObject.wassup[i] == 'Y')
+				{
+				fakeObject.wassup[i] = 'y';
+				}
+			if (fakeObject.wassup[i] == 'Z')
+				{
+				fakeObject.wassup[i] = 'z';
+				}
+			}	
+	return fakeObject;
+	}
+	public MyString toUpperCase()
+	{
+		MyString fakeObject = new MyString(wassup);
+		fakeObject.wassup = wassup;
+		for (int i = 0; i < fakeObject.wassup.length; i++)
+			{
+			if (fakeObject.wassup[i] == 'a')
+				{
+				fakeObject.wassup[i] = 'A';
+				}
+			if (fakeObject.wassup[i] == 'b')
+				{
+				fakeObject.wassup[i] = 'B';
+				}
+			if (fakeObject.wassup[i] == 'c')
+				{
+				fakeObject.wassup[i] = 'C';
+				}
+			if (fakeObject.wassup[i] == 'd')
+				{
+				fakeObject.wassup[i] = 'D';
+				}
+			if (fakeObject.wassup[i] == 'e')
+				{
+				fakeObject.wassup[i] = 'E';
+				}
+			if (fakeObject.wassup[i] == 'f')
+				{
+				fakeObject.wassup[i] = 'F';
+				}
+			if (fakeObject.wassup[i] == 'g')
+				{
+				fakeObject.wassup[i] = 'G';
+				}
+			if (fakeObject.wassup[i] == 'h')
+				{
+				fakeObject.wassup[i] = 'H';
+				}
+			if (fakeObject.wassup[i] == 'i')
+				{
+				fakeObject.wassup[i] = 'I';
+				}
+			if (fakeObject.wassup[i] == 'j')
+				{
+				fakeObject.wassup[i] = 'J';
+				}
+			if (fakeObject.wassup[i] == 'k')
+				{
+				fakeObject.wassup[i] = 'K';
+				}
+			if (fakeObject.wassup[i] == 'l')
+				{
+				fakeObject.wassup[i] = 'L';
+				}
+			if (fakeObject.wassup[i] == 'm')
+				{
+				fakeObject.wassup[i] = 'M';
+				}
+			if (fakeObject.wassup[i] == 'n')
+				{
+				fakeObject.wassup[i] = 'N';
+				}
+			if (fakeObject.wassup[i] == 'o')
+				{
+				fakeObject.wassup[i] = 'O';
+				}
+			if (fakeObject.wassup[i] == 'p')
+				{
+				fakeObject.wassup[i] = 'P';
+				}
+			if (fakeObject.wassup[i] == 'q')
+				{
+				fakeObject.wassup[i] = 'Q';
+				}
+			if (fakeObject.wassup[i] == 'r')
+				{
+				fakeObject.wassup[i] = 'R';
+				}
+			if (fakeObject.wassup[i] == 's')
+				{
+				fakeObject.wassup[i] = 'S';
+				}
+			if (fakeObject.wassup[i] == 't')
+				{
+				fakeObject.wassup[i] = 'T';
+				}
+			if (fakeObject.wassup[i] == 'u')
+				{
+				fakeObject.wassup[i] = 'U';
+				}
+			if (fakeObject.wassup[i] == 'v')
+				{
+				fakeObject.wassup[i] = 'V';
+				}
+			if (fakeObject.wassup[i] == 'w')
+				{
+				fakeObject.wassup[i] = 'W';
+				}
+			if (fakeObject.wassup[i] == 'x')
+				{
+				fakeObject.wassup[i] = 'X';
+				}
+			if (fakeObject.wassup[i] == 'y')
+				{
+				fakeObject.wassup[i] = 'Y';
+				}
+			if (fakeObject.wassup[i] == 'z')
+				{
+				fakeObject.wassup[i] = 'Z';
+				}
+			}
+	return fakeObject;
+	}
+	public boolean equals(MyString s)
 	{
 		
 	}
 /*
-	public MyString toUpperCase()
-	{
-	}
-	public boolean equals(MyString s)
-	{
-	}
 	public MyString getMyString()
 	{
+	
 	}
-	public String toString();
+	public String toString()
 	{
-		return getMyString;
+		String tempString = valueOf(
+		return tempString;
 	}
-/*
+
 	public static MyString valueOf(int i)
 	{
 	}
