@@ -3,13 +3,19 @@ Benjamin Wu
 CISC 3150 HW4
 MyString Class 
 
-Comments:
+Comments: Used http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/lang/String.java
+to find out how the String class works. 
 
 
 */
 
+import java.util.*;
+
 class MyString
 {
+private final char[] wassup;
+private final int offset;
+
 	public static void main(String[] args)
 	{
 		char[] theArray = new char[] 
@@ -17,28 +23,45 @@ class MyString
 			'h', 'E', 'L', 'L', 'o'
 			};
 		MyString theNewString = new MyString(theArray);
+
 		System.out.println(theNewString); //This prints out the Hash for the Array. As of Now?
-		theNewString.charAt(4);
+		System.out.println(theNewString.charAt(3));
+		System.out.println(theNewString.length());
+		System.out.println(theNewString.substring(1,3));
+		System.out.println(theNewString.toString());
+
 		
 	}
-	public MyString(char[] chars) //Empty Constructor
+	public MyString(char[] chars)
 	{
-		
+	this.offset = 0;
+	this.wassup = chars;
+	}
+	public MyString(int offset, int count, char[] chars)
+	{
+	this.wassup = chars;
+	this.offset = offset;
 	}
 	public char charAt(int index)
 	{
-		//return MyString[index];
+		char[] temparray = wassup;
+		return temparray[index];
 	}
-/*
-	public int length()
+	public int length() //Im not using the string.length, im using the array.length. Does this count?
 	{
+		char[] temparray = wassup;
+		return temparray.length;
+	
 	}
 	public MyString substring(int begin, int end)
 	{
-	}
+		return new MyString(offset + begin, end - begin, wassup);
+	}/*
 	public MyString toLowerCase()
 	{
+		
 	}
+/*
 	public MyString toUpperCase()
 	{
 	}
@@ -50,7 +73,9 @@ class MyString
 	}
 	public String toString();
 	{
+		return getMyString;
 	}
+/*
 	public static MyString valueOf(int i)
 	{
 	}
