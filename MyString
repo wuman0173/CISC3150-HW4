@@ -4,8 +4,8 @@ CISC 3150 HW4
 MyString Class 
 
 Comments: Used http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/lang/String.java to find out how the String class works. 
-Used an extra constructor to help for the substring method from the grepCode source code for String Class
-Made a long toUpper and toLower case method for the alphabet.
+REMOVED: Used an extra constructor to help for the substring method from the grepCode source code for String Class. :REMOVED.
+Made a long toUpper and toLower case method for the alphabet. Changed the getMyString Method, not returning an object, just printing out the array.
 */
 
 import java.util.*;
@@ -13,7 +13,6 @@ import java.util.*;
 class MyString
 {
 private char[] wassup;
-private int count;
 private int offset;
 
 	public static void main(String[] args)
@@ -23,40 +22,59 @@ private int offset;
 			'h', 'E', 'L', 'L', 'o'
 			};
 		MyString theNewString = new MyString(theArray);
+		
+		theNewString.getMyString();
+		System.out.println("Original String.\n");
 
-		//These prints out the Hash for the Array. As of Now. Except charAt and length.
-		System.out.println(theNewString); 
-		System.out.println(theNewString.charAt(3));
-		System.out.println(theNewString.length());
+		//These prints out the Hash for the Array. As of Now. Except charAt and length. Done. Used .getMyString();
+		//System.out.println(theNewString); 
+		System.out.println("Test .charAt:  " + theNewString.charAt(3));
+		System.out.println("Test .length:  " + theNewString.length() + "\n");
 
-		char[] compareArray = new char[]
+		MyString newSubString = theNewString.substring(1,3);
+		newSubString.getMyString();
+		System.out.println("test substring.\n");
+
+		char[] compareArray = new char[]  //Create 2nd array, put in object, test .equals(MyString);
 			{
 			'h', 'E', 'L', 'L', 'o'
 			};
 		MyString secondCompareString = new MyString(compareArray);
 		boolean helloTestTF = secondCompareString.equals(theNewString);
 		System.out.println(helloTestTF);
+		secondCompareString.getMyString();
+		theNewString.getMyString();
+		System.out.println("test .equals(MyString Object) with an exact same Array of Characters.\n");
 
-		System.out.println(theNewString.substring(1,3));
-		System.out.println(theNewString.toString());
+		theNewString.toLowerCase(); 
+		theNewString.getMyString();
+		System.out.println("Test toLowerCase\n");
 
-		System.out.println(theNewString.toLowerCase());
-		System.out.println(theNewString.toUpperCase());
+		theNewString.toUpperCase();
+		theNewString.getMyString();
+		System.out.println("Test toUpperCase\n");
+
+		helloTestTF = secondCompareString.equals(theNewString);
+		System.out.println(helloTestTF);
+		secondCompareString.getMyString();
+		theNewString.getMyString();
+		System.out.println("Test .equals(MyString Object) with Array of different characters.");
 
 	}
 	public MyString(char[] chars)
 	{
 	this.offset = 0;
-	this.count = 0;
 	this.wassup = chars;
 	}
-	//Added this constructor for the substring method. used from the grep code for string class.
-	public MyString(int offset, int count, char[] chars)
-	{
-	this.wassup = chars;
-	this.count = count;
-	this.offset = offset;
-	}
+/**** REMOVED
+*	//Added this constructor for the substring method. used from the grep code for string class.
+*	public MyString(int offset, int count, char[] chars)
+*	{
+*	this.wassup = chars;
+*	this.count = count;
+*	this.offset = offset;
+*	}
+*****/
 	public char charAt(int index)
 	{
 		char[] temparray = wassup;
@@ -70,7 +88,16 @@ private int offset;
 	}
 	public MyString substring(int begin, int end)
 	{
-		return new MyString(offset + begin, end - begin, wassup);
+		int subtracter = end - begin; //to find the difference in begin and end, for the i = 0, less than subtract
+		char[] temparray = new char[subtracter];
+		int adder = begin;
+		for (int i = 0; i < subtracter; i++)
+		{
+			temparray[i] = wassup[adder];
+			adder = adder + 1;//added the adder so I don't change anything to the begin int, just in case;
+		}
+		MyString tempMyString = new MyString(temparray);
+		return tempMyString;
 	}
 	public MyString toLowerCase()
 	{
@@ -312,17 +339,22 @@ private int offset;
 			return true;
 		//return true after the for loop ends. it should end if it finishes the for loop, so all chars should be the same
 	}
-/*
-	public MyString getMyString()
+
+	public void getMyString()
+	//This method should print out the string array? why is it returning an object? changing to void.
+	//going to print out the array from here.
 	{
-	
-	}
-	public String toString()
-	{
-		String tempString = valueOf(
-		return tempString;
+	char[] temparray = wassup;
+	System.out.println(temparray);
 	}
 
+	public String toString()
+	//This is supposed to return a string... so... using the constructor of String class
+	{
+		String tempString
+		return tempString;
+	}
+/*
 	public static MyString valueOf(int i)
 	{
 	}
