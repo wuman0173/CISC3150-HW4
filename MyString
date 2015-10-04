@@ -3,10 +3,9 @@ Benjamin Wu
 CISC 3150 HW4
 MyString Class 
 
-Comments: Used http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/lang/String.java
-to find out how the String class works. 
-
-
+Comments: Used http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/lang/String.java to find out how the String class works. 
+Used an extra constructor to help for the substring method from the grepCode source code for String Class
+Made a long toUpper and toLower case method for the alphabet.
 */
 
 import java.util.*;
@@ -14,8 +13,8 @@ import java.util.*;
 class MyString
 {
 private char[] wassup;
-private final int count;
-private final int offset;
+private int count;
+private int offset;
 
 	public static void main(String[] args)
 	{
@@ -29,12 +28,21 @@ private final int offset;
 		System.out.println(theNewString); 
 		System.out.println(theNewString.charAt(3));
 		System.out.println(theNewString.length());
+
+		char[] compareArray = new char[]
+			{
+			'h', 'E', 'L', 'L', 'o'
+			};
+		MyString secondCompareString = new MyString(compareArray);
+		boolean helloTestTF = secondCompareString.equals(theNewString);
+		System.out.println(helloTestTF);
+
 		System.out.println(theNewString.substring(1,3));
 		System.out.println(theNewString.toString());
+
 		System.out.println(theNewString.toLowerCase());
 		System.out.println(theNewString.toUpperCase());
 
-		
 	}
 	public MyString(char[] chars)
 	{
@@ -42,6 +50,7 @@ private final int offset;
 	this.count = 0;
 	this.wassup = chars;
 	}
+	//Added this constructor for the substring method. used from the grep code for string class.
 	public MyString(int offset, int count, char[] chars)
 	{
 	this.wassup = chars;
@@ -291,7 +300,17 @@ private final int offset;
 	}
 	public boolean equals(MyString s)
 	{
-		
+		for (int i=0; i < wassup.length; i++) //using array length method again
+		{
+			if (this.wassup[i] != s.wassup[i]) 
+			{
+				//System.out.println(this.wassup[i] + " " + s.wassup[i]); //debug test
+				return false; 
+			}
+		//go through each element, if its not equal in array compare, return false
+		}
+			return true;
+		//return true after the for loop ends. it should end if it finishes the for loop, so all chars should be the same
 	}
 /*
 	public MyString getMyString()
