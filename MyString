@@ -63,9 +63,7 @@ private int offset;
 
 		System.out.println(theNewString.toString() + " This is the Character Array as a String");
 
-		MyString testValueOF = theNewString.valueOf(123);
-		testValueOF.getMyString();
-
+		System.out.println(theNewString.valueOf(33));
 	}
 	public MyString(char[] chars)
 	{
@@ -364,9 +362,9 @@ private int offset;
 	//This is supposed to change an INT into an OBJECT of MyString
 	{
 		
-		char[] temparray = new char[0];
+		char[] temparray = new char[1];
+		temparray[0]=(char)(i+'0'); //casting
 		MyString tempStringObject = new MyString(temparray);
-		tempStringObject.wassup = 
 		return tempStringObject;
 	}
 }
