@@ -9,7 +9,6 @@ Made a long toUpper and toLower case method for the alphabet. Changed the getMyS
 */
 
 import java.util.*;
-import java.lang.StringBuilder;
 
 class MyString
 {
@@ -361,7 +360,6 @@ private int offset;
 	public static MyString valueOf(int i)
 	//This is supposed to change an INT into an OBJECT of MyString
 	{
-		
 		char[] temparray = new char[1];
 		temparray[0]=(char)(i+'0'); //casting
 		MyString tempStringObject = new MyString(temparray);
