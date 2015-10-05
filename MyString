@@ -9,6 +9,7 @@ Made a long toUpper and toLower case method for the alphabet. Changed the getMyS
 */
 
 import java.util.*;
+import java.lang.StringBuilder;
 
 class MyString
 {
@@ -58,7 +59,12 @@ private int offset;
 		System.out.println(helloTestTF);
 		secondCompareString.getMyString();
 		theNewString.getMyString();
-		System.out.println("Test .equals(MyString Object) with Array of different characters.");
+		System.out.println("Test .equals(MyString Object) with Array of different characters.\n");
+
+		System.out.println(theNewString.toString() + " This is the Character Array as a String");
+
+		MyString testValueOF = theNewString.valueOf(123);
+		testValueOF.getMyString();
 
 	}
 	public MyString(char[] chars)
@@ -347,16 +353,20 @@ private int offset;
 	char[] temparray = wassup;
 	System.out.println(temparray);
 	}
-
+	
 	public String toString()
 	//This is supposed to return a string... so... using the constructor of String class
 	{
-		String tempString
+		String tempString = new String(wassup);
 		return tempString;
 	}
-/*
 	public static MyString valueOf(int i)
+	//This is supposed to change an INT into an OBJECT of MyString
 	{
+		
+		char[] temparray = new char[0];
+		MyString tempStringObject = new MyString(temparray);
+		tempStringObject.wassup = 
+		return tempStringObject;
 	}
-*/
 }
